@@ -1,24 +1,24 @@
 import express from "express";
 import {
-  createReposittory,
-  getAllReposittories,
-  fetchReposittoryById,
-  fetchReposittoryByName,
-  fetchReposittoryForCurrentUser,
-  updatedReposittoryById,
-  toggleReposittoryById,
-  deletedReposittoryById,
+  createRepository,
+  getAllRepositories,
+  fetchRepositoryById,
+  fetchRepositoryByName,
+  fetchRepositoryForCurrentUser,
+  updatedRepositoryById,
+  toggleRepositoryById,
+  deletedRepositoryById,
 } from "../controllers/repoController.js";
 
 const repoRouter = express.Router();
 
-repoRouter.post("/repo/all", createReposittory);
-repoRouter.get("/repo/all", getAllReposittories);
-repoRouter.get("/repo/:id", fetchReposittoryById);
-repoRouter.get("/repo/:name", fetchReposittoryByName);
-repoRouter.get("/repo/:userId", fetchReposittoryForCurrentUser);
-repoRouter.put("/repo/update/:id", updatedReposittoryById);
-repoRouter.delete("/repo/delete/:id", deletedReposittoryById);
-repoRouter.patch("/repo/toggle/:id", toggleReposittoryById);
+repoRouter.post("/repo/create", createRepository);
+repoRouter.get("/repo/all", getAllRepositories);
+repoRouter.get("/repo/:id", fetchRepositoryById);
+repoRouter.get("/repo/name/:name", fetchRepositoryByName);
+repoRouter.get("/repo/user/:userId", fetchRepositoryForCurrentUser);
+repoRouter.put("/repo/update/:id", updatedRepositoryById);
+repoRouter.delete("/repo/delete/:id", deletedRepositoryById);
+repoRouter.patch("/repo/toggle/:id", toggleRepositoryById);
 
 export default repoRouter;

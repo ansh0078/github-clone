@@ -94,7 +94,7 @@ const getUserProfile = async (req, res) => {
     });
 
     if (!user) {
-      return res.status(400).json({ message: "user not found!" });
+      return res.status(404).json({ message: "user not found!" });
     }
     
     return res.json({user});
@@ -127,7 +127,7 @@ const updateUserProfile = async (req, res) => {
   );
 
   if(!result){
-    return res.status(400).json({ message: "user not found!" });
+    return res.status(404).json({ message: "user not found!" });
   }
 
   return res.status(200).json(result);
@@ -148,7 +148,7 @@ const deleteUserProfile = async (req, res) => {
     });
 
     if(result.deletedCount == 0){
-      return res.status(400).json({ message: "user not found!" });
+      return res.status(404).json({ message: "user not found!" });
     }
     
     return res.json({message: "user profile deleted!"});
